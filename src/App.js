@@ -11,17 +11,18 @@ function Header() {
   );
 }
 
-function Nav() {
+function Nav(props) {
+  const list = props.data.map((e) => {
+    return (
+      <li key={e.id}>
+        <a href={"/read/" + e.id}>{e.title}</a>
+      </li>
+    );
+  });
+
   return (
     <nav>
-      <ol>
-        <li>
-          <a href="/read/1">html</a>
-        </li>
-        <li>
-          <a href="/read/2">css</a>
-        </li>
-      </ol>
+      <ol>{list}</ol>
     </nav>
   );
 }
@@ -36,10 +37,15 @@ function Article(props) {
 }
 
 function App() {
+  const topics = [
+    { id: 1, title: "html", body: "html is ..." },
+    { id: 2, title: "css", body: "css is ..." },
+  ];
+
   return (
     <div>
       <Header></Header>
-      <Nav></Nav>
+      <Nav data={topics}></Nav>
       <Article title="Welcome" body="Hello, WEB!"></Article>
       <img src="a.png"></img>
       <a href="http://info.cern.ch">web</a>
