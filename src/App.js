@@ -26,11 +26,11 @@ function Nav() {
   );
 }
 
-function Article() {
+function Article(props) {
   return (
     <article>
-      <h2>Welcome</h2>
-      Hello, WEB!
+      <h2>{props.title}</h2>
+      {props.body}
     </article>
   );
 }
@@ -40,7 +40,9 @@ function App() {
     <div>
       <Header></Header>
       <Nav></Nav>
-      <Article></Article>
+      <Article title="Welcome" body="Hello, WEB!"></Article>
+      <img src="a.png"></img>
+      <a href="http://info.cern.ch">web</a>
     </div>
   );
 }
